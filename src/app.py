@@ -4,6 +4,15 @@ import matplotlib.pyplot as plt
 from nba_api.stats.static import players
 from nba_api.stats.endpoints import playercareerstats
 from nba_api.stats.library.parameters import SeasonAll
+import io
+
+# Helper function to convert the Matplotlib figure to bytes for download
+def fig_to_bytes(fig):
+    buf = io.BytesIO()
+    fig.savefig(buf, format="png")
+    buf.seek(0)
+    return buf.getvalue()
+
 
 # Streamlit App Title and Description
 st.title("NBA Player PPG Over Seasons")
@@ -43,11 +52,3 @@ if selected_player:
         file_name=f"{selected_player}_PPG_over_seasons.png",
         mime="image/png"
     )
-
-# Helper function to convert the Matplotlib figure to bytes for download
-import io
-def fig_to_bytes(fig):
-    buf = io.BytesIO()
-    fig.savefig(buf, format="png")
-    buf.seek(0)
-    return buf.getvalue()
