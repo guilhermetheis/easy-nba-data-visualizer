@@ -1,2 +1,7 @@
 # easy-nba-data-visualizer
-streamlit app for easy nba data visuals
+
+Streamlit app for easy visuals
+
+# Changelog
+
+# Etc
